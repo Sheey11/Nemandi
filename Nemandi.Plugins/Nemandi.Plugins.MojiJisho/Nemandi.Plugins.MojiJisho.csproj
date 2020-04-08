@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+      <ProjectReference Include="..\..\Nemandi.PluginBase\Nemandi.PluginBase.csproj">
+          <Private>false</Private>
+          <ExcludeAssets>runtime</ExcludeAssets>
+      </ProjectReference>
+      <ProjectReference Include="..\..\Nemandi.Base\Nemandi.Base.csproj">
+          <Private>false</Private>
+          <ExcludeAssets>runtime</ExcludeAssets>
+      </ProjectReference>
+      <ProjectReference Include="..\..\Nemandi.CommonUtility\Nemandi.CommonUtility.csproj">
+          <Private>false</Private>
+          <ExcludeAssets>runtime</ExcludeAssets>
+      </ProjectReference>
+  </ItemGroup>
+</Project>
