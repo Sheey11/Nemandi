@@ -11,8 +11,9 @@ namespace Nemandi.Plugins.MojiJisho {
         public string Name => "Moji辞書";
         public string Author => "sheey";
         public Version Version => new Version(1, 0, 0);
+        public string Website => "";
         public string Email => "i@sheey.moe";
-        public string Description => "An implementation of Moji辞書";
+        public string Description => "An implementation of Moji辞書.";
 
         public Languages SourceLang => Languages.ChineseSimplified;
         public Languages QueryLang => Languages.Japanese;

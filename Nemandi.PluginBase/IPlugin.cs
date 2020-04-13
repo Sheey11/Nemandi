@@ -7,6 +7,7 @@ namespace Nemandi.PluginBase {
     public interface IPlugin {
         string Name { get; }
         string Author { get; }
+        string Website { get; }
         Version Version { get; }
         string Email { get; }
         string Description { get; }
