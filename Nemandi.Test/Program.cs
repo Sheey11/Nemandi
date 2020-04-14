@@ -15,7 +15,7 @@ namespace Nemandi.Test
             var result = manager.LoadPlugins();
 
             foreach(var plugin in result.Loaded) {
-                Console.WriteLine($"Name: {plugin.Name}");
+                Console.WriteLine($"Name: {plugin.Name}, Source lang: {plugin.SourceLang}");
             }
             
         }

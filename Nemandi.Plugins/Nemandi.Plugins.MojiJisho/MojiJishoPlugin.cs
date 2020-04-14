@@ -5,6 +5,7 @@ using Nemandi.PluginBase;
 using Nemandi.Base;
 using Nemandi.Base.Words;
 using Nemandi.CommonUtility;
+using Nemandi.PluginBase.Configurations;
 
 namespace Nemandi.Plugins.MojiJisho {
     public partial class MojiJishoPlugin : IPlugin {
@@ -15,9 +16,13 @@ namespace Nemandi.Plugins.MojiJisho {
         public string Email => "i@sheey.moe";
         public string Description => "An implementation of Moji辞書.";
 
+        public List<ConfigurationItem> ConfigurationItems => new List<ConfigurationItem> {
+                    new TextConfigItem("_SessionToken", ""),
+                };
+
         public Languages SourceLang => Languages.ChineseSimplified;
         public Languages QueryLang => Languages.Japanese;
-        public Features SupportedFeature => Features.Definition | Features.Pronunciation;
+        public Features SupportedFeature => Features.Definition | Features.Pronunciation | Features.Infection;
 
         public void OnInit(){ }
 

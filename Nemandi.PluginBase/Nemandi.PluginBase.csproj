@@ -4,6 +4,9 @@
     <ProjectReference Include="..\Nemandi.Base\Nemandi.Base.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Configurations\" />
+  </ItemGroup>
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>

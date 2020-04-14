@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Nemandi.Base;
 using Nemandi.Base.Words;
+using Nemandi.PluginBase.Configurations;
 
 namespace Nemandi.PluginBase {
     public interface IPlugin {
@@ -11,6 +12,8 @@ namespace Nemandi.PluginBase {
         Version Version { get; }
         string Email { get; }
         string Description { get; }
+
+        List<ConfigurationItem> ConfigurationItems { get; }
         
         Languages SourceLang { get; }
         Languages QueryLang { get; }
