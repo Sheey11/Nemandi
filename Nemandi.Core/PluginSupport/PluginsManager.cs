@@ -5,9 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Nemandi.PluginBase;
 
-namespace Nemandi.PluginSupport {
+namespace Nemandi.Core.PluginSupport {
     public class PluginsManager {
         private string pluginFolderPath { get; set; }
+
+        public List<PluginInfo> Plugins { get; set; }
 
         /// <summary>
         /// Create a new PluginManager.
@@ -19,21 +21,29 @@ namespace Nemandi.PluginSupport {
 
         public PluginLoadResult LoadPlugins() {
             var result = new PluginLoadResult();
-            result.Loaded = new List<IPlugin>();
+            result.Loaded = new List<PluginInfo>();
 
             // if the folder is empty
             var isEmpty = !Directory.EnumerateFileSystemEntries(this.pluginFolderPath).Any((n) => n.EndsWith(".dll"));
             if (isEmpty)
                 return result;
 
-            var fnames = Directory.GetFiles(this.pluginFolderPath);
-            var plugins = fnames.SelectMany(pluginPath => {
+            // filter non-assembly file
+            var fnames = from f in Directory.GetFiles(this.pluginFolderPath) where f.EndsWith(".dll") select f;
+
+            foreach(var pluginPath in fnames) {
                 // load each file
                 Assembly plugin = LoadPlugin(pluginPath);
-                return CreatePlugin(plugin);
-            }).ToList();
+                var instances = CreatePlugin(plugin);
 
-            result.Loaded.AddRange(plugins);
+                // create PluginInfo for every Instance
+                foreach (var instance in instances) {
+                    result.Add(instance, pluginPath);
+                }
+            }
+
+            this.Plugins = result.Loaded;
+
             return result;
         }
 

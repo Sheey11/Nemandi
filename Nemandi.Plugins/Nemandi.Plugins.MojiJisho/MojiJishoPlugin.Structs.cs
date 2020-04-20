@@ -10,7 +10,7 @@ namespace Nemandi.Plugins.MojiJisho {
             public static string _ApplicationId = "E62VyFVLMiW7kvbtVq3p";
             public static string _ClientVersion = "js2.10.0";
             public static string _InstallationId = "b200eee6-4ff3-44c0-a916-9a75336be5c0";
-            public static string _SessionToken;
+            public static string _SessionToken = "";
         }
     }
 }

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Nemandi.Base.Words{
+namespace Nemandi.Infrastructure.Words{
     public class BilingualDefinition : Definition{
         public string SecondaryDef { get; private set; }
 

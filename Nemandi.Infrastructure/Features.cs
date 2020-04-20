@@ -1,6 +1,6 @@
 using System;
 
-namespace Nemandi.Base {
+namespace Nemandi.Infrastructure {
     /// <summary>
     /// Specify which feature the plugin support;
     /// </summary>

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Nemandi.Base.Words {
+namespace Nemandi.Infrastructure.Words {
     public class Word {
         public string HeadWord { get; private set; }
         public List<string> Tags { get; private set; }

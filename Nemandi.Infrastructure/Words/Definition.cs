@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Nemandi.Base.Words{
+namespace Nemandi.Infrastructure.Words{
     public class Definition{
         public string PrimaryDef { get; private set; }
         public List<ExampleSentence> ExampleSentences { get; private set;}

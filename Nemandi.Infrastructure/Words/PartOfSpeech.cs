@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Nemandi.Base.Words {
+namespace Nemandi.Infrastructure.Words {
     public class PartOfSpeech {
         public string POS { get; set; }
         public List<Definition> Definitions;

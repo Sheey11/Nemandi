@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Nemandi.PluginBase;
 
 namespace Nemandi.Plugins.MojiJisho {
+    [Serializable]
     class Result {
         public string originalSearchText { get; set; }
         public IList<SearchResult> searchResults { get; set; }

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Text.Json;
 using Nemandi.PluginBase;
-using Nemandi.Base;
-using Nemandi.Base.Words;
+using Nemandi.Infrastructure;
+using Nemandi.Infrastructure.Words;
 using Nemandi.CommonUtility;
 using Nemandi.PluginBase.Configurations;
 

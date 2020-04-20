@@ -1,6 +1,6 @@
 using System;
 
-namespace Nemandi.Base.Words{
+namespace Nemandi.Infrastructure.Words{
     public class ExampleSentence {
         public string Sentence { get; internal set; }
         public string Translation { get; internal set; }

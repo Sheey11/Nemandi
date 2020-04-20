@@ -1,6 +1,6 @@
 using System;
 
-namespace Nemandi.Base.Words {
+namespace Nemandi.Infrastructure.Words {
     public class Pronunciation {
         // TODO
     }

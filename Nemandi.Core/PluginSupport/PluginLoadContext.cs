@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Runtime.Loader;
 
-namespace Nemandi.PluginSupport {
+namespace Nemandi.Core.PluginSupport {
     public class PluginLoadContext : AssemblyLoadContext {
         private AssemblyDependencyResolver _resolver;
 

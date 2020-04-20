@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="PluginSupport\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Nemandi.Infrastructure\Nemandi.Infrastructure.csproj" />
     <ProjectReference Include="..\Nemandi.PluginBase\Nemandi.PluginBase.csproj" />
   </ItemGroup>
 </Project>

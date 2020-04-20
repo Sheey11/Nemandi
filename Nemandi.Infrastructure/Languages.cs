@@ -1,6 +1,6 @@
 using System;
 
-namespace Nemandi.Base {
+namespace Nemandi.Infrastructure {
     public enum Languages {
         Afrikaans,
         Albanian,
