@@ -2,6 +2,7 @@ language: csharp
 solution: src/Nemandi.sln
 os: windows
 
+mono: none
 dotnet: 3.1.201
 script:
  - dotnet restore
