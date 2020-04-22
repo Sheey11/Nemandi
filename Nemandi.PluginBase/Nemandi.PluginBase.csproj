@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <Folder Include="Configurations\" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nemandi.Infrastructure\Nemandi.Infrastructure.csproj" />

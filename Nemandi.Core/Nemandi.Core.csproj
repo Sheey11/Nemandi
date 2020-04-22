@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="PluginSupport\" />
+    <Folder Include="UserSettings\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nemandi.Infrastructure\Nemandi.Infrastructure.csproj" />

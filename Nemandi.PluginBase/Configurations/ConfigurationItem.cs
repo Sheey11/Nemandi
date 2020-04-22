@@ -4,7 +4,14 @@ namespace Nemandi.PluginBase.Configurations {
 
         public ConfigurationTypes Type { get; }
         public string Name { get; protected set; }
-        public virtual object Value { get; set; }
+        public object _value;
+        public virtual object Value {
+            get => _value;
+            set {
+                _value = value;
+                OnValueChanged(this, value);
+            }
+        }
         public virtual object DefaultValue { get; protected set; }
         public bool Enabled { get; set; }
 
@@ -12,6 +19,11 @@ namespace Nemandi.PluginBase.Configurations {
 
         public ConfigurationItem() {
 
+        }
+
+        public void SetInitValue(object value) {
+            this._value = value;
+            OnValueChanged(this, value, true);
         }
     }
 }

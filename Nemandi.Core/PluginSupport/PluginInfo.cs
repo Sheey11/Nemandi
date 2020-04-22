@@ -25,27 +25,5 @@ namespace Nemandi.Core.PluginSupport {
 		public bool Enabled { get; set; }
 
 		public PluginInfo() { }
-
-        public void SaveConfig() {
-            using (var file = File.OpenWrite("plugin-config.json")) {
-				foreach (var config in Instance.ConfigurationItems) {
-                    switch (config.Type) {
-						case ConfigurationTypes.Intenger:
-                            // TODO
-                            break;
-						case ConfigurationTypes.Decimal:
-                            // TODO
-							break;
-						case ConfigurationTypes.Bool:
-							// TODO
-							break;
-						case ConfigurationTypes.Text:
-							// TODO
-							break;
-
-                    }
-				}
-			}
-        }
 	}
 }

@@ -4,7 +4,14 @@ namespace Nemandi.PluginBase.Configurations {
     public class DecimalConfigItem : ConfigurationItem {
 
         public ConfigurationTypes Types => ConfigurationTypes.Intenger;
-        public new double Value { get; set; }
+        public new double _value { get; set; }
+        public new double Value {
+            get => _value;
+            set {
+                this._value = value;
+                OnValueChanged(this, value);
+            }
+        }
         public new double DefaultValue { get; protected set; }
 
         public double? Max { get; set; }
