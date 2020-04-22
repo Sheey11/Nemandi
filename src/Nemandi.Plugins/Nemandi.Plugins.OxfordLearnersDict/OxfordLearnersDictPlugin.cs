@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Nemandi.Base;
-using Nemandi.Base.Words;
+using Nemandi.Infrastructure;
+using Nemandi.Infrastructure.Words;
 using Nemandi.PluginBase;
 using Nemandi.PluginBase.Configurations;
 
