@@ -4,5 +4,6 @@ os: windows
 mono: none
 script:
  - choco install dotnetcore-sdk
+ - cd src/
  - dotnet restore
  - dotnet build
