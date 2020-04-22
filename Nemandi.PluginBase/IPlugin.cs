@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Nemandi.Infrastructure;
 using Nemandi.Infrastructure.Words;
 using Nemandi.PluginBase.Configurations;
@@ -22,5 +23,13 @@ namespace Nemandi.PluginBase {
         void OnInit();
         List<PreviewWord> Autocomplete(string queryString);
         List<Word> Query(PreviewWord word);
+
+        Task<List<PreviewWord>> AutocompleteAsync(string queryString) {
+            return Task.Run(() => Autocomplete(queryString));
+        }
+
+        Task<List<Word>> QueryAsync(PreviewWord word) {
+            return Task.Run(() => Query(word));
+        }
     }
 }
