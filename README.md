@@ -2,4 +2,4 @@ Nemandi is a project on Windows which allows you to look up words like [Spotligh
 
 # Contrubuting
 This project is **Working In Progress**. Here's the achitecture.
-![](https://github.com/Sheey11/Nemandi/tree/master/img/arch.webp)
+![](https://github.com/Sheey11/Nemandi/blob/master/img/arch.webp)
