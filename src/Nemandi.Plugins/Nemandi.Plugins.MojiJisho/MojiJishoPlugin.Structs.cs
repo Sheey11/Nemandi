@@ -2,7 +2,7 @@ using System;
 using Nemandi.PluginBase;
 
 namespace Nemandi.Plugins.MojiJisho {
-    public partial class MojiJishoPlugin : IPlugin {
+    public partial class MojiJishoPlugin : IConfigPlugin {
         struct SearchData {
             public string searchText;
             public static bool needWords = true;

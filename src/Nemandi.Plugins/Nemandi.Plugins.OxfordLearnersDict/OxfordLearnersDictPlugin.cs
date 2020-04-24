@@ -6,7 +6,7 @@ using Nemandi.PluginBase;
 using Nemandi.PluginBase.Configurations;
 
 namespace Nemandi.Plugins.OxfordLearnersDict {
-    public class OxfordLearnersDictPlugin : IPlugin {
+    public class OxfordLearnersDictPlugin : IConfigPlugin {
         public string Name => "Oxford Learner's Dictionaries";
         public string Author => "sheey";
         public string Website => "https://www.oxfordlearnersdictionaries.com/";
@@ -17,6 +17,7 @@ namespace Nemandi.Plugins.OxfordLearnersDict {
         public List<ConfigurationItem> ConfigurationItems => new List<ConfigurationItem>() {
                     new TextConfigItem("API key", ""),
                 };
+        public event OnConfigListChanged onConfigListChanged;
 
         public Languages SourceLang => Languages.English;
         public Languages QueryLang => Languages.English;
@@ -26,7 +27,7 @@ namespace Nemandi.Plugins.OxfordLearnersDict {
             throw new NotImplementedException();
         }
 
-        public void OnInit() {
+        public void OnInit(PluginInitContext context) {
             throw new NotImplementedException();
         }
 

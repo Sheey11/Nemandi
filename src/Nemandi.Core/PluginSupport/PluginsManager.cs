@@ -29,7 +29,10 @@ namespace Nemandi.Core.PluginSupport {
                 return result;
 
             // filter non-assembly file
-            var fnames = from f in Directory.GetFiles(this.pluginFolderPath) where f.EndsWith(".dll") select f;
+            var fnames = from f
+                         in Directory.GetFiles(this.pluginFolderPath)
+                         where f.EndsWith(".dll")
+                         select f;
 
             foreach(var pluginPath in fnames) {
                 // load each file

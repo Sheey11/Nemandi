@@ -13,14 +13,12 @@ namespace Nemandi.PluginBase {
         Version Version { get; }
         string Email { get; }
         string Description { get; }
-
-        List<ConfigurationItem> ConfigurationItems { get; }
         
         Languages SourceLang { get; }
         Languages QueryLang { get; }
         Features SupportedFeature { get; }
         
-        void OnInit();
+        void OnInit(PluginInitContext context);
         List<PreviewWord> Autocomplete(string queryString);
         List<Word> Query(PreviewWord word);
 

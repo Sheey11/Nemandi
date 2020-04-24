@@ -3,9 +3,19 @@
   <ItemGroup>
     <Folder Include="Configurations\" />
     <Folder Include="Exceptions\" />
+    <Folder Include="Actions\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nemandi.Infrastructure\Nemandi.Infrastructure.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="IConfigPlugin %28copy%29.cs" />
+    <Compile Remove="IPlugin %28copy%29.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interfaces\IActionPlugin.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
+    <Compile Include="Interfaces\IConfigPlugin.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>

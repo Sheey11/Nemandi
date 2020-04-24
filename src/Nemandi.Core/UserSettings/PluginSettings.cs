@@ -9,13 +9,13 @@ using Nemandi.PluginBase.Configurations;
 namespace Nemandi.Core.UserSettings {
     public class PluginSettings {
 
-        private readonly IPlugin _parentPlugin;
+        private readonly IConfigPlugin _parentPlugin;
         private List<ConfigurationItem> Configurations => _parentPlugin.ConfigurationItems;
 
         private string ConfigFilePath => Path.GetFullPath($"./config/plugins/{_parentPlugin.Name}.json");
         private string ConfigFileFolder => Path.GetDirectoryName(this.ConfigFilePath);
 
-        public PluginSettings(IPlugin plugin) {
+        public PluginSettings(IConfigPlugin plugin) {
             this._parentPlugin = plugin;
         }
 

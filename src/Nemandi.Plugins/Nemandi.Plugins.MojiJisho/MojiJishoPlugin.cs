@@ -8,7 +8,7 @@ using Nemandi.CommonUtility;
 using Nemandi.PluginBase.Configurations;
 
 namespace Nemandi.Plugins.MojiJisho {
-    public partial class MojiJishoPlugin : IPlugin {
+    public partial class MojiJishoPlugin : IConfigPlugin {
         public string Name => "Moji辞書";
         public string Author => "sheey";
         public Version Version => new Version(1, 0, 0);
@@ -19,12 +19,13 @@ namespace Nemandi.Plugins.MojiJisho {
         public List<ConfigurationItem> ConfigurationItems => new List<ConfigurationItem> {
                     new TextConfigItem("_SessionToken", ""),
                 };
+        public event OnConfigListChanged onConfigListChanged;
 
         public Languages SourceLang => Languages.ChineseSimplified;
         public Languages QueryLang => Languages.Japanese;
         public Features SupportedFeature => Features.Definition | Features.Pronunciation | Features.Infection;
 
-        public void OnInit(){ }
+        public void OnInit(PluginInitContext context){ }
 
         public List<PreviewWord> Autocomplete(string queryString) {
             var data = new SearchData{ searchText = queryString };

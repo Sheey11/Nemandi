@@ -6,5 +6,6 @@ namespace Nemandi.PluginBase.Configurations {
         Intenger,
         Decimal,
         Bool,
+        Password,
     }
 }
