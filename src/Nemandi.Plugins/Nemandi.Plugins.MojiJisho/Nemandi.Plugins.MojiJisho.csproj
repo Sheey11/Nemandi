@@ -12,6 +12,9 @@
           <Private>false</Private>
           <ExcludeAssets>runtime</ExcludeAssets>
       </ProjectReference>
-      <ProjectReference Include="..\..\Nemandi.Infrastructure\Nemandi.Infrastructure.csproj" />
+      <ProjectReference Include="..\..\Nemandi.Infrastructure\Nemandi.Infrastructure.csproj">
+          <Private>false</Private>
+          <ExcludeAssets>runtime</ExcludeAssets>
+      </ProjectReference>
   </ItemGroup>
 </Project>

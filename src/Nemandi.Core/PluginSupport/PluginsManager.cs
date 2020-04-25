@@ -37,10 +37,12 @@ namespace Nemandi.Core.PluginSupport {
             foreach(var pluginPath in fnames) {
                 // load each file
                 Assembly plugin = LoadPlugin(pluginPath);
-                var instances = CreatePlugin(plugin);
 
                 // create PluginInfo for every Instance
+                var instances = CreatePlugin(plugin);
+
                 foreach (var instance in instances) {
+                    instance.OnInit(new PluginInitContext());
                     result.Add(instance, pluginPath);
                 }
             }

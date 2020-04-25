@@ -9,7 +9,7 @@ namespace Nemandi.PluginBase.Configurations {
             get => _value;
             set {
                 _value = value;
-                OnValueChanged(this, value);
+                OnValueChanged?.Invoke(this, value);
             }
         }
         public virtual object DefaultValue { get; protected set; }
@@ -23,7 +23,7 @@ namespace Nemandi.PluginBase.Configurations {
 
         public void SetInitValue(object value) {
             this._value = value;
-            OnValueChanged(this, value, true);
+            OnValueChanged?.Invoke(this, value, true);
         }
     }
 }

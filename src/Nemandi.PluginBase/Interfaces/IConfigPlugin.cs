@@ -6,9 +6,9 @@ using Nemandi.Infrastructure.Words;
 using Nemandi.PluginBase.Configurations;
 
 namespace Nemandi.PluginBase {
-    public interface IActionPlugin : IPlugin {
+    public interface IConfigPlugin : IPlugin {
         List<ConfigurationItem> ConfigurationItems { get; }
 
-        event OnActionListChanged onActionListChanged;
+        event OnConfigListChanged OnConfigListChanged;
     }
 }

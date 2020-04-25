@@ -17,7 +17,11 @@ namespace Nemandi.CommonUtility {
             }
         }
         public static byte[] Get(string url){
-            return Task.Run(() => GetAsync(url)).Result;
+            return Task.Run(() => GetAsync(url)).GetAwaiter().GetResult();
+        }
+        public static string GetString(string url) {
+            var bytes = Task.Run(() => GetAsync(url)).GetAwaiter().GetResult();
+            return Encoding.UTF8.GetString(bytes);
         }
 
         public async static Task<byte[]> PostAsync(string url, string json){
@@ -33,7 +37,11 @@ namespace Nemandi.CommonUtility {
             }
         }
         public static byte[] Post(string url, string json){
-            return Task.Run(() => PostAsync(url, json)).Result;
+            return Task.Run(() => PostAsync(url, json)).GetAwaiter().GetResult();
+        }
+        public static string PostString(string url, string json) {
+            var bytes = Task.Run(() => PostAsync(url, json)).GetAwaiter().GetResult();
+            return Encoding.UTF8.GetString(bytes);
         }
     }
 }

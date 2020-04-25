@@ -17,7 +17,7 @@ namespace Nemandi.Plugins.OxfordLearnersDict {
         public List<ConfigurationItem> ConfigurationItems => new List<ConfigurationItem>() {
                     new TextConfigItem("API key", ""),
                 };
-        public event OnConfigListChanged onConfigListChanged;
+        public event OnConfigListChanged OnConfigListChanged;
 
         public Languages SourceLang => Languages.English;
         public Languages QueryLang => Languages.English;

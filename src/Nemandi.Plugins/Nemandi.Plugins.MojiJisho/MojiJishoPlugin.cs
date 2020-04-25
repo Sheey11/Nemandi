@@ -6,6 +6,7 @@ using Nemandi.Infrastructure;
 using Nemandi.Infrastructure.Words;
 using Nemandi.CommonUtility;
 using Nemandi.PluginBase.Configurations;
+using Nemandi.PluginBase.Actions;
 
 namespace Nemandi.Plugins.MojiJisho {
     public partial class MojiJishoPlugin : IConfigPlugin {
@@ -16,30 +17,23 @@ namespace Nemandi.Plugins.MojiJisho {
         public string Email => "i@sheey.moe";
         public string Description => "An implementation of Moji辞書.";
 
-        public List<ConfigurationItem> ConfigurationItems => new List<ConfigurationItem> {
-                    new TextConfigItem("_SessionToken", ""),
-                };
-        public event OnConfigListChanged onConfigListChanged;
+        public List<ConfigurationItem> ConfigurationItems { get; } = new List<ConfigurationItem>() {
+            new TextConfigItem("_SessionToken", "")
+        };
+
+        public event OnConfigListChanged OnConfigListChanged;
 
         public Languages SourceLang => Languages.ChineseSimplified;
         public Languages QueryLang => Languages.Japanese;
         public Features SupportedFeature => Features.Definition | Features.Pronunciation | Features.Infection;
 
-        public void OnInit(PluginInitContext context){ }
+        public void OnInit(PluginInitContext context){
+
+        }
 
         public List<PreviewWord> Autocomplete(string queryString) {
-            var data = new SearchData{ searchText = queryString };
-            var json = JsonSerializer.Serialize(data);
-            var r = Http.Post("https://api.mojidict.com/parse/functions/search_v3", json);
-            var jsonReader = new Utf8JsonReader(r);
-            var search = JsonSerializer.Deserialize<Search>(ref jsonReader);
-            var words = search.result.words;
-            var pwords = new List<PreviewWord>();
-            foreach(var word in words){
-                var headword = $"{word.spell} | {word.pron}";
-                var pword = new PreviewWord(headword, "", word.excerpt, word.objectId);
-            }
-            return pwords;
+            var session = this.ConfigurationItems[0].Value as string;
+            return MojiJishoInteraction.Autocomplete(queryString, session);
         }
 
         public List<Word> Query(PreviewWord word) {

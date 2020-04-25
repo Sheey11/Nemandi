@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Nemandi.Infrastructure;
 using Nemandi.Infrastructure.Words;
-using Nemandi.PluginBase.Configurations;
+using Nemandi.PluginBase.Actions;
 
 namespace Nemandi.PluginBase {
-    public interface IConfigPlugin : IPlugin {
-        List<ConfigurationItem> ConfigurationItems { get; }
+    public interface IActionPlugin : IPlugin {
+        List<PluginAction> Actions { get; }
 
-        event OnConfigListChanged onConfigListChanged;
+        event OnActionListChanged OnActionListChanged;
     }
 }
