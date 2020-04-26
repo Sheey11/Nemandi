@@ -36,8 +36,10 @@ namespace Nemandi.Plugins.MojiJisho {
             return MojiJishoInteraction.Autocomplete(queryString, session);
         }
 
-        public List<Word> Query(PreviewWord word) {
-            throw new NotImplementedException();
+        public Word Query(PreviewWord word) {
+            var objId = word.Props as string;
+            var session = this.ConfigurationItems[0].Value as string;
+            return MojiJishoInteraction.QueryWords(objId, session);
         }
     }
 }

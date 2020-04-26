@@ -20,13 +20,13 @@ namespace Nemandi.PluginBase {
         
         void OnInit(PluginInitContext context);
         List<PreviewWord> Autocomplete(string queryString);
-        List<Word> Query(PreviewWord word);
+        Word Query(PreviewWord word);
 
         Task<List<PreviewWord>> AutocompleteAsync(string queryString) {
             return Task.Run(() => Autocomplete(queryString));
         }
 
-        Task<List<Word>> QueryAsync(PreviewWord word) {
+        Task<Word> QueryAsync(PreviewWord word) {
             return Task.Run(() => Query(word));
         }
     }
