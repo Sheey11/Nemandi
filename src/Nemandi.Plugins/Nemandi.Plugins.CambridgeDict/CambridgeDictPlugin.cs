@@ -18,7 +18,7 @@ namespace Nemandi.Plugins.CambridgeDict {
         public Features SupportedFeature => Features.Definition | Features.Phrase | Features.Pronunciation;
 
         public List<PreviewWord> Autocomplete(string queryString) {
-            
+            return CambridgeInteraction.Autocomplete(queryString);
         }
 
         public void OnInit(PluginInitContext context) {
