@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Collections.Generic;
 using Nemandi.Infrastructure.Words;
 using Nemandi.CommonUtility;
+using System.Web;
 
 namespace Nemandi.Plugins.MojiJisho {
     internal static class MojiJishoInteraction {
@@ -19,6 +20,8 @@ namespace Nemandi.Plugins.MojiJisho {
         }
 
         internal static List<PreviewWord> Autocomplete(string str, string session) {
+            str = HttpUtility.UrlEncode(str);
+
             var memoryStream = new MemoryStream();
             var jsonWriter = new Utf8JsonWriter(memoryStream);
             jsonWriter.WriteStartObject();

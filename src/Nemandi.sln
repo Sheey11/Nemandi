@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nemandi.CommonUtility", "Ne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nemandi.Infrastructure", "Nemandi.Infrastructure\Nemandi.Infrastructure.csproj", "{08455047-AD74-4335-8A07-8551497A43E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nemandi.Plugins.CambridgeDict", "Nemandi.Plugins\Nemandi.Plugins.CambridgeDict\Nemandi.Plugins.CambridgeDict.csproj", "{7DB02E22-F580-4D58-8FCF-8CE574932D8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -116,9 +118,22 @@ Global
 		{08455047-AD74-4335-8A07-8551497A43E1}.Release|x64.Build.0 = Release|Any CPU
 		{08455047-AD74-4335-8A07-8551497A43E1}.Release|x86.ActiveCfg = Release|Any CPU
 		{08455047-AD74-4335-8A07-8551497A43E1}.Release|x86.Build.0 = Release|Any CPU
+		{7DB02E22-F580-4D58-8FCF-8CE574932D8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DB02E22-F580-4D58-8FCF-8CE574932D8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DB02E22-F580-4D58-8FCF-8CE574932D8D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7DB02E22-F580-4D58-8FCF-8CE574932D8D}.Debug|x64.Build.0 = Debug|Any CPU
+		{7DB02E22-F580-4D58-8FCF-8CE574932D8D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7DB02E22-F580-4D58-8FCF-8CE574932D8D}.Debug|x86.Build.0 = Debug|Any CPU
+		{7DB02E22-F580-4D58-8FCF-8CE574932D8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DB02E22-F580-4D58-8FCF-8CE574932D8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DB02E22-F580-4D58-8FCF-8CE574932D8D}.Release|x64.ActiveCfg = Release|Any CPU
+		{7DB02E22-F580-4D58-8FCF-8CE574932D8D}.Release|x64.Build.0 = Release|Any CPU
+		{7DB02E22-F580-4D58-8FCF-8CE574932D8D}.Release|x86.ActiveCfg = Release|Any CPU
+		{7DB02E22-F580-4D58-8FCF-8CE574932D8D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{EE1C6842-4CA0-4317-9F2D-6B0EADF86A9D} = {9F0DC759-6C79-42EC-B8B6-93B21F4AE699}
 		{F4EE596A-EA7E-4B79-82B2-9229EFD06C59} = {9F0DC759-6C79-42EC-B8B6-93B21F4AE699}
+		{7DB02E22-F580-4D58-8FCF-8CE574932D8D} = {9F0DC759-6C79-42EC-B8B6-93B21F4AE699}
 	EndGlobalSection
 EndGlobal

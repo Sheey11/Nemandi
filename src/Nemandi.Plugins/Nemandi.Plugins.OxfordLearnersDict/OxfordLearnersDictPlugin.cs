@@ -31,7 +31,7 @@ namespace Nemandi.Plugins.OxfordLearnersDict {
             throw new NotImplementedException();
         }
 
-        public List<Word> Query(PreviewWord word) {
+        public Word Query(PreviewWord word) {
             throw new NotImplementedException();
         }
     }
