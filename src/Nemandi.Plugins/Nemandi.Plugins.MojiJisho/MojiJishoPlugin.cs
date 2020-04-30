@@ -24,7 +24,7 @@ namespace Nemandi.Plugins.MojiJisho {
         public event OnConfigListChanged OnConfigListChanged;
 
         public Languages SourceLang => Languages.ChineseSimplified;
-        public Languages QueryLang => Languages.Japanese;
+        public Languages TargetLang => Languages.Japanese;
         public Features SupportedFeature => Features.Definition | Features.Pronunciation | Features.Infection;
 
         public void OnInit(PluginInitContext context){

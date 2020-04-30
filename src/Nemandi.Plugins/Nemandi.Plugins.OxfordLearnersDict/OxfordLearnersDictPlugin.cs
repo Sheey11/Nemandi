@@ -20,7 +20,7 @@ namespace Nemandi.Plugins.OxfordLearnersDict {
         public event OnConfigListChanged OnConfigListChanged;
 
         public Languages SourceLang => Languages.English;
-        public Languages QueryLang => Languages.English;
+        public Languages TargetLang => Languages.English;
         public Features SupportedFeature => Features.Definition | Features.Pronunciation;
 
         public List<PreviewWord> Autocomplete(string queryString) {

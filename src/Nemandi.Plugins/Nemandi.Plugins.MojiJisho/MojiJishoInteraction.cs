@@ -121,7 +121,7 @@ namespace Nemandi.Plugins.MojiJisho {
             }
 
             var pronunciations = new List<Pronunciation>() {
-                new Pronunciation ($"{retPronunciation} {retTone}", "")
+                new Pronunciation ("", $"{retPronunciation} {retTone}", "")
             };
 
             return new Word(retHeadword, pronunciations, retPoses);

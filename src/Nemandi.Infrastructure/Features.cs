@@ -2,7 +2,7 @@ using System;
 
 namespace Nemandi.Infrastructure {
     /// <summary>
-    /// Specify which feature the plugin support;
+    /// Specify which feature the plugin support.
     /// </summary>
     [Flags]
     public enum Features {

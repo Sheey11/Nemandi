@@ -14,7 +14,7 @@ namespace Nemandi.Plugins.CambridgeDict {
         public string Description => "An implementation of Cambridge Dictionary, thanks to https://github.com/xueyuanl/cambrinary.";
 
         public Languages SourceLang => Languages.English;
-        public Languages QueryLang => Languages.ChineseSimplified;
+        public Languages TargetLang => Languages.ChineseSimplified;
         public Features SupportedFeature => Features.Definition | Features.Phrase | Features.Pronunciation;
 
         public List<PreviewWord> Autocomplete(string queryString) {

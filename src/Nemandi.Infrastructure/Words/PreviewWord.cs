@@ -18,7 +18,22 @@ namespace Nemandi.Infrastructure.Words {
         /// Other properties.
         /// </summary>
         public object Props { get; set; }
-        
+
+        /// <summary>
+        /// Construct a new <see cref="PreviewWord"/> class.
+        /// </summary>
+        /// <param name="headWord">
+        /// The word.
+        /// </param>
+        /// <param name="pos">
+        /// Part of speech.
+        /// </param>
+        /// <param name="previewDef">
+        /// Preview definition.
+        /// </param>
+        /// <param name="props">
+        /// Other properties.
+        /// </param>
         public PreviewWord(string headWord, string pos = "", string previewDef = "", object props = null){
             this.HeadWord = headWord;
             this.POS = pos;

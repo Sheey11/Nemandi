@@ -19,7 +19,7 @@ namespace Nemandi.Core.PluginSupport {
         public string Description => Instance.Description;
 
         public Languages SourceLang => Instance.SourceLang;
-        public Languages QueryLang => Instance.QueryLang;
+        public Languages QueryLang => Instance.TargetLang;
         public Features SupportedFeature => Instance.SupportedFeature;
 
         public bool Enabled { get; set; }
