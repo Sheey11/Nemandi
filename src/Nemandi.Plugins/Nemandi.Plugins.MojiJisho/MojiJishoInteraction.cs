@@ -20,8 +20,6 @@ namespace Nemandi.Plugins.MojiJisho {
         }
 
         internal static List<PreviewWord> Autocomplete(string str, string session) {
-            str = HttpUtility.UrlEncode(str);
-
             var memoryStream = new MemoryStream();
             var jsonWriter = new Utf8JsonWriter(memoryStream);
             jsonWriter.WriteStartObject();

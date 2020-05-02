@@ -10,20 +10,21 @@ namespace Nemandi.Core.UserSettings {
     public class PluginSettings {
 
         private readonly IConfigPlugin _parentPlugin;
+        private readonly string _pluginPath;
         private List<ConfigurationItem> Configurations => _parentPlugin.ConfigurationItems;
 
         private string ConfigFilePath => Path.GetFullPath($"./config/plugins/{_parentPlugin.Name}.json");
         private string ConfigFileFolder => Path.GetDirectoryName(this.ConfigFilePath);
 
-        public PluginSettings(IConfigPlugin plugin) {
+        public PluginSettings(ref IConfigPlugin plugin, string path) {
             this._parentPlugin = plugin;
+            this._pluginPath = path;
         }
 
         public void Save() {
             Directory.CreateDirectory(this.ConfigFileFolder);
-            var path = Path.GetFullPath(this.ConfigFilePath);
 
-            using (var fs = File.OpenWrite(path)) {
+            using (var fs = File.OpenWrite(this.ConfigFilePath)) {
                 using(var writer = new Utf8JsonWriter(fs)) {
                     // start of the json
                     writer.WriteStartObject();

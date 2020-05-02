@@ -3,6 +3,7 @@ using System.IO;
 using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Nemandi.PluginBase;
 
 namespace Nemandi.Core.PluginSupport {
@@ -42,7 +43,9 @@ namespace Nemandi.Core.PluginSupport {
                 var instances = CreatePlugin(plugin);
 
                 foreach (var instance in instances) {
+                    // need optimization
                     instance.OnInit(new PluginInitContext());
+
                     result.Add(instance, pluginPath);
                 }
             }

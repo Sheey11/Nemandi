@@ -48,7 +48,6 @@ namespace Nemandi.Test {
                     }
                 }
             }
-
         }
     }
 }
