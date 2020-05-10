@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Nemandi.PluginBase.Exceptions {
+namespace Nemandi.Infrastructure.Exceptions.Plugin {
     public class InternalErrorExecption : Exception {
         public bool CanIgnore { get; internal set; }
 

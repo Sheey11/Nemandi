@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Nemandi.Infrastructure.Words;
-using Nemandi.CommonUtility;
+using Nemandi.Infrastructure;
 using System.Web;
 using System.Text.Json;
 

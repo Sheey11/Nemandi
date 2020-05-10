@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Text;
 
-namespace Nemandi.CommonUtility {
+namespace Nemandi.Infrastructure {
     public static class Http {
         public async static Task<byte[]> GetAsync(string url){
             var client = new HttpClient();

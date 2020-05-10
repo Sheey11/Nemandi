@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Nemandi.Core\Nemandi.Core.csproj" />
-    <ProjectReference Include="..\Nemandi.CommonUtility\Nemandi.CommonUtility.csproj" />
     <ProjectReference Include="..\Nemandi.Infrastructure\Nemandi.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

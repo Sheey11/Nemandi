@@ -5,8 +5,7 @@ using System.Text;
 using System.Text.Json;
 using System.Collections.Generic;
 using Nemandi.Infrastructure.Words;
-using Nemandi.CommonUtility;
-using System.Web;
+using Nemandi.Infrastructure;
 
 namespace Nemandi.Plugins.MojiJisho {
     internal static class MojiJishoInteraction {

@@ -6,5 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Words\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Exceptions\Plugin\" />
   </ItemGroup>
 </Project>

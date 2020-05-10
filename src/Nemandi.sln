@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nemandi.Test", "Nemandi.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nemandi.Plugins.OxfordLearnersDict", "Nemandi.Plugins\Nemandi.Plugins.OxfordLearnersDict\Nemandi.Plugins.OxfordLearnersDict.csproj", "{F4EE596A-EA7E-4B79-82B2-9229EFD06C59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nemandi.CommonUtility", "Nemandi.CommonUtility\Nemandi.CommonUtility.csproj", "{AD8B3F1B-1ACD-484C-9B02-3C72FB298BE7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nemandi.Infrastructure", "Nemandi.Infrastructure\Nemandi.Infrastructure.csproj", "{08455047-AD74-4335-8A07-8551497A43E1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nemandi.Plugins.CambridgeDict", "Nemandi.Plugins\Nemandi.Plugins.CambridgeDict\Nemandi.Plugins.CambridgeDict.csproj", "{7DB02E22-F580-4D58-8FCF-8CE574932D8D}"
@@ -94,18 +92,6 @@ Global
 		{F4EE596A-EA7E-4B79-82B2-9229EFD06C59}.Release|x64.Build.0 = Release|Any CPU
 		{F4EE596A-EA7E-4B79-82B2-9229EFD06C59}.Release|x86.ActiveCfg = Release|Any CPU
 		{F4EE596A-EA7E-4B79-82B2-9229EFD06C59}.Release|x86.Build.0 = Release|Any CPU
-		{AD8B3F1B-1ACD-484C-9B02-3C72FB298BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD8B3F1B-1ACD-484C-9B02-3C72FB298BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD8B3F1B-1ACD-484C-9B02-3C72FB298BE7}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{AD8B3F1B-1ACD-484C-9B02-3C72FB298BE7}.Debug|x64.Build.0 = Debug|Any CPU
-		{AD8B3F1B-1ACD-484C-9B02-3C72FB298BE7}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{AD8B3F1B-1ACD-484C-9B02-3C72FB298BE7}.Debug|x86.Build.0 = Debug|Any CPU
-		{AD8B3F1B-1ACD-484C-9B02-3C72FB298BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD8B3F1B-1ACD-484C-9B02-3C72FB298BE7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AD8B3F1B-1ACD-484C-9B02-3C72FB298BE7}.Release|x64.ActiveCfg = Release|Any CPU
-		{AD8B3F1B-1ACD-484C-9B02-3C72FB298BE7}.Release|x64.Build.0 = Release|Any CPU
-		{AD8B3F1B-1ACD-484C-9B02-3C72FB298BE7}.Release|x86.ActiveCfg = Release|Any CPU
-		{AD8B3F1B-1ACD-484C-9B02-3C72FB298BE7}.Release|x86.Build.0 = Release|Any CPU
 		{08455047-AD74-4335-8A07-8551497A43E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{08455047-AD74-4335-8A07-8551497A43E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08455047-AD74-4335-8A07-8551497A43E1}.Debug|x64.ActiveCfg = Debug|Any CPU

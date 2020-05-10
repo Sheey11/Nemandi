@@ -7,6 +7,8 @@
   <ItemGroup>
     <Folder Include="PluginSupport\" />
     <Folder Include="UserSettings\" />
+    <Folder Include="I18N\" />
+    <Folder Include="HotKey\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nemandi.Infrastructure\Nemandi.Infrastructure.csproj" />
