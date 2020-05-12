@@ -8,5 +8,6 @@
     <Folder Include="Words\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Exceptions\Plugin\" />
+    <Folder Include="CommonUtilities\" />
   </ItemGroup>
 </Project>
