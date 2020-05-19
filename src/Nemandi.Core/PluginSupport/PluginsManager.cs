@@ -64,7 +64,7 @@ namespace Nemandi.Core.PluginSupport {
             foreach(var type in assembly.GetTypes()) {
                 if (typeof(IPlugin).IsAssignableFrom(type)) {
                     var plugin = Activator.CreateInstance(type) as IPlugin;
-                    if(plugin != null) 
+                    if(plugin != null)
                         yield return plugin;
                 }
             }
