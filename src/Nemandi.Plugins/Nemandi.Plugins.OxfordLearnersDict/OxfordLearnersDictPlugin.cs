@@ -28,7 +28,7 @@ namespace Nemandi.Plugins.OxfordLearnersDict {
         }
 
         public void OnInit(PluginInitContext context) {
-            throw new NotImplementedException();
+            
         }
 
         public Word Query(PreviewWord word) {

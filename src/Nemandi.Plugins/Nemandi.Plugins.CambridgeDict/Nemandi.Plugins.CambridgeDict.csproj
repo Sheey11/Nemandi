@@ -4,8 +4,23 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\..\Nemandi.Test\bin\Debug\netcoreapp3.1\plugins</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\..\Nemandi.Test\bin\Debug\netcoreapp3.1\plugins</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\..\Nemandi.PluginBase\Nemandi.PluginBase.csproj" />
-    <ProjectReference Include="..\..\Nemandi.Infrastructure\Nemandi.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Nemandi.PluginBase\Nemandi.PluginBase.csproj">
+      <Private>false</Private>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Nemandi.Infrastructure\Nemandi.Infrastructure.csproj">
+      <Private>false</Private>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </ProjectReference>
   </ItemGroup>
 </Project>

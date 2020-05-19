@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Nemandi.PluginBase;
 
 namespace Nemandi.Core.PluginSupport {
-    public class PluginsManager {
+    public class PluginManager {
         private string pluginFolderPath { get; set; }
 
         public List<PluginInfo> Plugins { get; set; }
@@ -16,7 +16,7 @@ namespace Nemandi.Core.PluginSupport {
         /// Create a new PluginManager.
         /// </summary>
         /// <param name="path">Absolute path to the plugins folder.</param>
-        public PluginsManager(string path) {
+        public PluginManager(string path) {
             pluginFolderPath = path;
         }
 
@@ -25,14 +25,17 @@ namespace Nemandi.Core.PluginSupport {
             result.Loaded = new List<PluginInfo>();
 
             // if the folder is empty
-            var isEmpty = !Directory.EnumerateFileSystemEntries(this.pluginFolderPath).Any((n) => n.EndsWith(".dll"));
+            var isEmpty = !Directory.EnumerateFileSystemEntries(this.pluginFolderPath).Any((n) =>
+                n.EndsWith(".dll") && Path.GetFileName(n).StartsWith("Nemandi.Plugin")
+                );
+
             if (isEmpty)
                 return result;
 
             // filter non-assembly file
             var fnames = from f
                          in Directory.GetFiles(this.pluginFolderPath)
-                         where f.EndsWith(".dll")
+                         where f.EndsWith(".dll") && Path.GetFileName(f).StartsWith("Nemandi.Plugin")
                          select f;
 
             foreach(var pluginPath in fnames) {

@@ -72,7 +72,13 @@ namespace Nemandi.Plugins.MojiJisho {
             var word = result.GetProperty("word");
             var details = result.GetProperty("details").EnumerateArray();
             var subdetails = result.GetProperty("subdetails").EnumerateArray();
-            var examples = result.GetProperty("examples").EnumerateArray();
+
+            JsonElement examplesElement;
+            IEnumerable<JsonElement> examples;
+            if (result.TryGetProperty("examples", out examplesElement))
+                examples = examplesElement.EnumerateArray();
+            else
+                examples = new List<JsonElement>();
 
             // word properties
             var retHeadword = word.GetProperty("spell").GetString();

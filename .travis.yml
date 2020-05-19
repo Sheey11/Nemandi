@@ -7,3 +7,5 @@ script:
  - cd src/
  - dotnet restore
  - dotnet build
+ - cd Nemandi.Test/
+ - dotnet test

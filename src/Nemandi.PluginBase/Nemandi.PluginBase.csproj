@@ -3,9 +3,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Nemandi.Infrastructure\Nemandi.Infrastructure.csproj" />
+    <ProjectReference Include="..\Nemandi.Infrastructure\Nemandi.Infrastructure.csproj">
+      <Private>false</Private>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </ProjectReference>
   </ItemGroup>
-    
+
   <ItemGroup>
     <Folder Include="Configurations\" />
     <Folder Include="Actions\" />
