@@ -12,7 +12,6 @@ namespace Nemandi.Infrastructure.Words {
         /// </summary>
         public List<Definition> Definitions;
 
-
         /// <summary>
         /// Construct a new <see cref="PartOfSpeech"/> class.
         /// </summary>
