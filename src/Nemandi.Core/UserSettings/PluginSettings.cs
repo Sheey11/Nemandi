@@ -74,11 +74,9 @@ namespace Nemandi.Core.UserSettings {
                 JsonElement ele;
                 try {
                     ele = root.GetProperty(item.Name);
-                }
-                catch (KeyNotFoundException) {
+                } catch (KeyNotFoundException) {
                     continue;
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     throw e;
                 }
 

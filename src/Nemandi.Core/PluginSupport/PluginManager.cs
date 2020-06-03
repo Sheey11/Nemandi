@@ -26,7 +26,8 @@ namespace Nemandi.Core.PluginSupport {
 
             // if the folder is empty
             var isEmpty = !Directory.EnumerateFileSystemEntries(this.pluginFolderPath).Any((n) =>
-                n.EndsWith(".dll") && Path.GetFileName(n).StartsWith("Nemandi.Plugin")
+                    n.EndsWith(".dll", StringComparison.OrdinalIgnoreCase) &&
+                    Path.GetFileName(n).StartsWith("Nemandi.Plugin", StringComparison.OrdinalIgnoreCase)
                 );
 
             if (isEmpty)
@@ -35,7 +36,8 @@ namespace Nemandi.Core.PluginSupport {
             // filter non-assembly file
             var fnames = from f
                          in Directory.GetFiles(this.pluginFolderPath)
-                         where f.EndsWith(".dll") && Path.GetFileName(f).StartsWith("Nemandi.Plugin")
+                         where f.EndsWith(".dll", StringComparison.OrdinalIgnoreCase) &&
+                               Path.GetFileName(f).StartsWith("Nemandi.Plugin", StringComparison.OrdinalIgnoreCase)
                          select f;
 
             foreach(var pluginPath in fnames) {
