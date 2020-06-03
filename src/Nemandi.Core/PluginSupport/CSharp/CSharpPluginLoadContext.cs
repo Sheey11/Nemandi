@@ -2,11 +2,11 @@
 using System.Reflection;
 using System.Runtime.Loader;
 
-namespace Nemandi.Core.PluginSupport {
-    public class PluginLoadContext : AssemblyLoadContext {
+namespace Nemandi.Core.PluginSupport.CSharp {
+    internal class CSharpPluginLoadContext : AssemblyLoadContext {
         private AssemblyDependencyResolver _resolver;
 
-        public PluginLoadContext(string pluginPath) {
+        public CSharpPluginLoadContext(string pluginPath) {
             _resolver = new AssemblyDependencyResolver(pluginPath);
         }
 

@@ -4,26 +4,26 @@ using System.Text.Json.Serialization;
 using Nemandi.PluginBase;
 using Nemandi.PluginBase.Configurations;
 using Nemandi.Infrastructure;
+using Nemandi.Core.PluginSupport.CSharp;
 
 namespace Nemandi.Core.PluginSupport {
-    public class PluginInfo {
+    public abstract class PluginInfo {
+        public abstract string FilePath { get; protected set; }
+        public abstract string Name { get; }
+        public abstract string Author { get; }
+        public abstract string Website { get; }
+        public abstract Version Version { get; }
+        public abstract string Email { get; }
+        public abstract string Description { get; }
 
-        public IPlugin Instance { get; set; }
+        public abstract Languages SourceLang { get; }
+        public abstract Languages QueryLang { get; }
+        public abstract Features SupportedFeature { get; }
 
-        public string FilePath { get; set; }
-        public string Name => Instance.Name;
-        public string Author => Instance.Author;
-        public string Website => Instance.Website;
-        public Version Version => Instance.Version;
-        public string Email => Instance.Email;
-        public string Description => Instance.Description;
+        public abstract bool Enabled { get; set; }
 
-        public Languages SourceLang => Instance.SourceLang;
-        public Languages QueryLang => Instance.TargetLang;
-        public Features SupportedFeature => Instance.SupportedFeature;
-
-        public bool Enabled { get; set; }
-
-        public PluginInfo() { }
+        public static CSharpPluginInfo CreateCSharpPluginInfo(IPlugin instance, string path) {
+            return new CSharpPluginInfo(instance, path);
+        }
     }
 }

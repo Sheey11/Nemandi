@@ -6,23 +6,22 @@ using System.Linq;
 using System.Threading.Tasks;
 using Nemandi.PluginBase;
 
-namespace Nemandi.Core.PluginSupport {
-    public class PluginManager {
+namespace Nemandi.Core.PluginSupport.CSharp {
+    public class CSharpPluginManager {
         private string pluginFolderPath { get; set; }
 
-        public List<PluginInfo> Plugins { get; set; }
+        public List<NemandiCSharpPlugin> Plugins { get; set; }
 
         /// <summary>
         /// Create a new PluginManager.
         /// </summary>
         /// <param name="path">Absolute path to the plugins folder.</param>
-        public PluginManager(string path) {
+        public CSharpPluginManager(string path) {
             pluginFolderPath = path;
         }
 
-        public PluginLoadResult LoadPlugins() {
-            var result = new PluginLoadResult();
-            result.Loaded = new List<PluginInfo>();
+        public bool LoadPlugins() {
+            var result = new List<NemandiCSharpPlugin>();
 
             // if the folder is empty
             var isEmpty = !Directory.EnumerateFileSystemEntries(this.pluginFolderPath).Any((n) =>
@@ -31,7 +30,7 @@ namespace Nemandi.Core.PluginSupport {
                 );
 
             if (isEmpty)
-                return result;
+                return true;
 
             // filter non-assembly file
             var fnames = from f
@@ -41,27 +40,32 @@ namespace Nemandi.Core.PluginSupport {
                          select f;
 
             foreach(var pluginPath in fnames) {
-                // load each file
-                Assembly plugin = LoadPlugin(pluginPath);
+                try {
+                    // load each file
+                    Assembly plugin = LoadPlugin(pluginPath);
 
-                // create PluginInfo for every Instance
-                var instances = CreatePlugin(plugin);
+                    // create PluginInfo for every Instance
+                    var instances = CreatePlugin(plugin);
 
-                foreach (var instance in instances) {
-                    // need optimization
-                    instance.OnInit(new PluginInitContext());
+                    foreach (var instance in instances) {
+                        // need optimization
+                        instance.OnInit(new PluginInitContext());
 
-                    result.Add(instance, pluginPath);
+                        result.Add(NemandiPlugin.CreateCSharpPlugin(instance, pluginPath));
+                    }
+                }catch(Exception e) {
+                    // TODO: Logging, and more
+                    continue;
                 }
             }
 
-            this.Plugins = result.Loaded;
+            this.Plugins = result;
 
-            return result;
+            return true;
         }
 
         private Assembly LoadPlugin(string path) {
-            PluginLoadContext loadContext = new PluginLoadContext(path);
+            CSharpPluginLoadContext loadContext = new CSharpPluginLoadContext(path);
             return loadContext.LoadFromAssemblyName(new AssemblyName(Path.GetFileNameWithoutExtension(path)));
         }
 

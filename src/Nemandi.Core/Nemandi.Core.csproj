@@ -10,6 +10,8 @@
     <Folder Include="I18N\" />
     <Folder Include="HotKey\" />
     <Folder Include="I18N\LanguageResources\" />
+    <Folder Include="PluginSupport\CSharp\" />
+    <Folder Include="PluginSupport\JavaScript\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nemandi.Infrastructure\Nemandi.Infrastructure.csproj" />

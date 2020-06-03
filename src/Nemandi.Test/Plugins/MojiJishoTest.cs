@@ -4,6 +4,7 @@ using System.Linq;
 using System.IO;
 using System.Collections.Generic;
 using Nemandi.Core;
+using Nemandi.Core.PluginSupport.CSharp;
 using Nemandi.Core.PluginSupport;
 using Nemandi.PluginBase;
 
@@ -16,19 +17,23 @@ namespace Nemandi.Test.Plugins {
         [InlineData("とお")]
         [InlineData("にぎ")]
         public static void QueryTest(string value) {
-            var pluginManager = new PluginManager(PluginFolder);
-            var loadedPlugin = pluginManager.LoadPlugins().Loaded;
+            var pluginManager = new CSharpPluginManager(PluginFolder);
+            Assert.True(pluginManager.LoadPlugins(), "Load plugins faild.");
+
+            var loadedPlugin = pluginManager.Plugins;
 
             Console.WriteLine();
             Console.WriteLine("==================== Loaded Plugin ===================");
-            foreach (var p in loadedPlugin)
-                Console.WriteLine(p.Name);
+            foreach (var p in loadedPlugin) {
+                var info = p.GetInfo();
+                Console.WriteLine(info.Name);
+            }
             Console.WriteLine("==================== Loaded Plugin ===================");
             Console.WriteLine();
 
-            var moji = (from PluginInfo plugin
+            var moji = (from plugin
                        in loadedPlugin
-                        where plugin.Name == "Moji辞書"
+                        where plugin.GetInfo().Name == "Moji辞書"
                         select plugin).First();
             var instance = moji.Instance as IConfigPlugin;
 
