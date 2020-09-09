@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nemandi.Plugins.CambridgeDi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nemandi.Test", "Nemandi.Test\Nemandi.Test.csproj", "{191E828A-9E2A-4F6B-AC96-AD569F9DD6FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nemandi", "Nemandi\Nemandi.csproj", "{BD4276C8-5798-40B8-A32F-59544938AAD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -116,6 +118,18 @@ Global
 		{191E828A-9E2A-4F6B-AC96-AD569F9DD6FC}.Release|x64.Build.0 = Release|Any CPU
 		{191E828A-9E2A-4F6B-AC96-AD569F9DD6FC}.Release|x86.ActiveCfg = Release|Any CPU
 		{191E828A-9E2A-4F6B-AC96-AD569F9DD6FC}.Release|x86.Build.0 = Release|Any CPU
+		{BD4276C8-5798-40B8-A32F-59544938AAD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD4276C8-5798-40B8-A32F-59544938AAD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD4276C8-5798-40B8-A32F-59544938AAD4}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BD4276C8-5798-40B8-A32F-59544938AAD4}.Debug|x64.Build.0 = Debug|Any CPU
+		{BD4276C8-5798-40B8-A32F-59544938AAD4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BD4276C8-5798-40B8-A32F-59544938AAD4}.Debug|x86.Build.0 = Debug|Any CPU
+		{BD4276C8-5798-40B8-A32F-59544938AAD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD4276C8-5798-40B8-A32F-59544938AAD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD4276C8-5798-40B8-A32F-59544938AAD4}.Release|x64.ActiveCfg = Release|Any CPU
+		{BD4276C8-5798-40B8-A32F-59544938AAD4}.Release|x64.Build.0 = Release|Any CPU
+		{BD4276C8-5798-40B8-A32F-59544938AAD4}.Release|x86.ActiveCfg = Release|Any CPU
+		{BD4276C8-5798-40B8-A32F-59544938AAD4}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{EE1C6842-4CA0-4317-9F2D-6B0EADF86A9D} = {9F0DC759-6C79-42EC-B8B6-93B21F4AE699}

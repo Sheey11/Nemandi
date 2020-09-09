@@ -2,18 +2,24 @@
 using Xunit;
 using System.IO;
 using Nemandi.Test.Plugins;
+using Xunit.Abstractions;
 
 namespace Nemandi.Test {
     
-    public static class BasicInfo {
+    public class BasicInfo {
+        private readonly ITestOutputHelper outputHelper;
+
+        public BasicInfo(ITestOutputHelper helper) {
+            this.outputHelper = helper;
+        }
+
         [Fact]
-        public static void PrintBasicInfo() {
-            Console.WriteLine();
-            Console.WriteLine("=============== Basic Infomation Start ===============");
-            Console.WriteLine($"Test in current running at {Path.GetFullPath(".")}");
-            Console.WriteLine($"Loading plugins at {MojiJishoTest.PluginFolder}");
-            Console.WriteLine("================ Basic Infomation End ================");
-            Console.WriteLine();
+        public void PrintBasicInfo() {
+            this.outputHelper.WriteLine("");
+            this.outputHelper.WriteLine("=============== Basic Infomation Start ===============");
+            this.outputHelper.WriteLine($"Test in current running at {Path.GetFullPath(".")}");
+            this.outputHelper.WriteLine("================ Basic Infomation End ================");
+            this.outputHelper.WriteLine("");
         }
     }
 }
