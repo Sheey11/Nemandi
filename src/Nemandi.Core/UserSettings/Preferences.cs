@@ -2,11 +2,15 @@
 using System.IO;
 using System.Text.Json;
 using System.Reflection;
+using System.Linq;
+using System.Collections.Generic;
 using System.Globalization;
 
 namespace Nemandi.Core.UserSettings {
     public static class Preferences {
-        public static CultureInfo UILanguage => CultureInfo.CurrentUICulture;
+
+        [UserSettingItem("UILanguage")]
+        public static CultureInfo UILanguage { get; set; } = CultureInfo.CurrentUICulture;
         // TODO
 
         private static string PreferenceFilePath => Path.GetFileName(@"./config/preference.json");
@@ -19,8 +23,14 @@ namespace Nemandi.Core.UserSettings {
             using var writer = new Utf8JsonWriter(stream);
             writer.WriteStartObject();
 
-            foreach (var item in typeof(Preferences).GetProperties(BindingFlags.Public)) {
-                var value = item.GetConstantValue();
+            var preItems = from propInfo
+                           in typeof(Preferences).GetProperties(BindingFlags.Public)
+                           let attr = propInfo.GetCustomAttribute(typeof(UserSettingItem))
+                           where attr != null
+                           select propInfo;
+
+            foreach (var item in preItems) {
+                var value = item.GetValue(null);
                 switch (value) {
                     case bool b:
                         writer.WriteBoolean(item.Name, b);
@@ -35,6 +45,43 @@ namespace Nemandi.Core.UserSettings {
             }
             writer.WriteEndObject();
             writer.Flush();
+        }
+
+        public static int Load() {
+            if (!File.Exists(PreferenceFilePath)) return 0;
+
+            using var file = File.OpenRead(PreferenceFilePath);
+            var json = JsonDocument.Parse(file);
+            var root = json.RootElement;
+
+            var props = new List<PropertyInfo>(typeof(Preferences).GetProperties(BindingFlags.Public));
+
+            var preItems = from PropertyInfo propInfo
+                           in props
+                           let attr = propInfo.GetCustomAttribute(typeof(UserSettingItem))
+                           where attr != null
+                           select propInfo;
+
+            var itemSettled = 0;
+
+            foreach (var item in preItems) {
+                if (!root.TryGetProperty(item.Name, out JsonElement jsonEle)) continue;
+                switch (item.GetValue(null)) {
+                    case bool _:
+                        item.SetValue(null, root.GetProperty(item.Name));
+                        break;
+                    case int _:
+                        item.SetValue(null, root.GetProperty(item.Name));
+                        break;
+                    default:
+                        throw new NotImplementedException();
+                        // TODO
+                        break;
+                }
+                itemSettled++;
+            }
+
+            return itemSettled;
         }
     }
 }
