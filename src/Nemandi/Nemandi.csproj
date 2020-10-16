@@ -10,4 +10,10 @@
     <PackageReference Include="FluentWPF" Version="0.8.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Nemandi.Core\Nemandi.Core.csproj" />
+    <ProjectReference Include="..\Nemandi.Infrastructure\Nemandi.Infrastructure.csproj" />
+    <ProjectReference Include="..\Nemandi.PluginBase\Nemandi.PluginBase.csproj" />
+  </ItemGroup>
+
 </Project>

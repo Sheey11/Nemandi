@@ -25,10 +25,10 @@ namespace Nemandi.Test.Plugins {
         [InlineData("とお")]
         [InlineData("にぎ")]
         public void QueryTest(string value) {
-            var pluginManager = new CSharpPluginManager(PluginFolder);
-            Assert.True(pluginManager.LoadPlugins(), "Load plugins faild.");
+            PluginManager.LoadFrom(PluginFolder);
+            Assert.False (PluginManager.LoadedPlugins.Count == 0, "Load plugins failed.");
 
-            var loadedPlugin = pluginManager.Plugins;
+            var loadedPlugin = PluginManager.LoadedPlugins;
 
             this.outputHelper.WriteLine("");
             this.outputHelper.WriteLine("==================== Loaded Plugin ===================");
@@ -40,17 +40,16 @@ namespace Nemandi.Test.Plugins {
             this.outputHelper.WriteLine("");
 
             var moji = (from plugin
-                       in loadedPlugin
-                        where plugin.GetInfo().Name == "Moji辞書"
-                        select plugin).First();
-            var instance = moji.Instance as IConfigPlugin;
+                    in loadedPlugin
+                where plugin.GetInfo().Name == "Moji辞書"
+                select plugin).First();
 
-            var pwList = instance.Autocomplete(value);
+            var pwList = moji.Autocomplete(value);
 
-            Assert.False(pwList.Count == 0);
+            Assert.False(pwList?.Count == 0);
 
-            var selectedPw = pwList.FirstOrDefault();
-            var word = instance.Query(selectedPw);
+            var selectedPw = pwList?.FirstOrDefault();
+            var word = moji.Query(selectedPw);
 
             Assert.False(word == null);
             Assert.False(word.HeadWord == "");

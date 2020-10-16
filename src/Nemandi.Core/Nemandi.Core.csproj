@@ -1,16 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="PluginSupport\" />
+    <ApplicationDefinition Include="Resources\NTextCat\Core14.profile.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="UserSettings\" />
     <Folder Include="I18N\" />
     <Folder Include="HotKey\" />
     <Folder Include="I18N\LanguageResources\" />
-    <Folder Include="PluginSupport\CSharp\" />
     <Folder Include="PluginSupport\JavaScript\" />
   </ItemGroup>
   <ItemGroup>
@@ -27,5 +29,13 @@
     <Compile Update="I18N\LanguageResources\zh-cn.Designer.cs">
       <DependentUpon>Strings.zh-CN.resx</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NTextCat" Version="0.3.65" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Resources\NTextCat\Core14.profile.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

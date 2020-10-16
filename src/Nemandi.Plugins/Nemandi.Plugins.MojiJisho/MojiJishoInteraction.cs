@@ -33,6 +33,7 @@ namespace Nemandi.Plugins.MojiJisho {
             var json = Encoding.UTF8.GetString(memoryStream.ToArray());
 
             var retJson = Http.PostString(AUTOCOMPLETE_URL, json);
+            if(retJson == "{result: null}") return new List<PreviewWord>();
             var jsonDom = JsonDocument.Parse(retJson);
             var result = jsonDom.RootElement.GetProperty("result");
 

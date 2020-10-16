@@ -25,7 +25,7 @@ namespace Nemandi.Core.I18N {
                         where lang.Code == code
                         select lang;
 
-            return langs.First();
+            return langs.FirstOrDefault();
         }
     }
 }

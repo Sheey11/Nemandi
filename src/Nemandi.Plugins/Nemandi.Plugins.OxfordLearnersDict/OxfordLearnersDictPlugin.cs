@@ -24,6 +24,7 @@ namespace Nemandi.Plugins.OxfordLearnersDict {
         public Features SupportedFeature => Features.Definition | Features.Pronunciation;
 
         public List<PreviewWord> Autocomplete(string queryString) {
+            return new List<PreviewWord>();
             throw new NotImplementedException();
         }
 

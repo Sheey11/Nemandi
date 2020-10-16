@@ -65,7 +65,7 @@ namespace Nemandi.Core.UserSettings {
             var itemSettled = 0;
 
             foreach (var item in preItems) {
-                if (!root.TryGetProperty(item.Name, out JsonElement jsonEle)) continue;
+                if (!root.TryGetProperty(item.Name, out var jsonEle)) continue;
                 switch (item.GetValue(null)) {
                     case bool _:
                         item.SetValue(null, root.GetProperty(item.Name));

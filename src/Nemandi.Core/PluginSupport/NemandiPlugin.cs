@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Nemandi.Infrastructure.Words;
 using Nemandi.PluginBase;
 
 namespace Nemandi.Core.PluginSupport {
@@ -14,5 +16,7 @@ namespace Nemandi.Core.PluginSupport {
         }
 
         public abstract PluginInfo GetInfo();
+        public abstract List<PreviewWord> Autocomplete(string queryStr);
+        public abstract Word Query(PreviewWord word);
     }
 }

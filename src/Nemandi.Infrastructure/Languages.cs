@@ -111,5 +111,6 @@ namespace Nemandi.Infrastructure {
         Yiddish,
         Yoruba,
         Zulu,
+        Unknown,
     }
 }

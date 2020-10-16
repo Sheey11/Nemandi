@@ -5,39 +5,56 @@
                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                    xmlns:local="clr-namespace:Nemandi"
+                   xmlns:mvvm="clr-namespace:Nemandi.MVVM"
+                   xmlns:words="clr-namespace:Nemandi.Infrastructure.Words;assembly=Nemandi.Infrastructure"
                    mc:Ignorable="d"
                    AcrylicWindowStyle="None"
-                   TintOpacity="0.3"
-                   Title="Nemandi" Height="60" Width="700" Foreground="#FF323232" VerticalAlignment="Center" HorizontalAlignment="Center"
+                   TintOpacity="0.5"
+                   Title="Nemandi"
+                   Width="700" Height="300"
+                   FontFamily="Calibri"
+                   Background="{DynamicResource SystemChromeMediumLowColor}"
+                   Foreground="{DynamicResource SystemBaseMediumHighColorBrush}"
+                   VerticalAlignment="Center" HorizontalAlignment="Center"
+                   ShowInTaskbar="False"
                    ResizeMode="NoResize" WindowStartupLocation="Manual">
     <Grid fw:PointerTracker.Enabled="True">
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="61"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox FontFamily="Microsoft YaHei" VerticalAlignment="Top"
-                 Height="60" VerticalContentAlignment="Center"
-                 Width="{Binding ActualWidth, ElementName=acrylicWindow, Mode=OneWay}"
-                 FontSize="26"
-                 BorderBrush="{x:Null}" Background="{x:Null}"
-                 TextChanged="TextBoxBase_OnTextChanged"/>
+        <StackPanel Grid.Row="0">
+            <DockPanel>
+                <Viewbox Width="32" Height="32" Margin="10 0 0 0">
+                    <Canvas Width="24" Height="24">
+                        <Path Fill="Black" VerticalAlignment="Center" HorizontalAlignment="Center"
+                              Data="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+                    </Canvas>
+                </Viewbox>
+                <TextBox x:Name="QueryTextBox" FontFamily="Calibri" VerticalAlignment="Top"
+                         Height="60" VerticalContentAlignment="Center" BorderThickness="0"
+                         Width="{Binding ActualWidth, ElementName=acrylicWindow, Mode=OneWay}"
+                         FontSize="26" BorderBrush="{x:Null}" Background="{x:Null}"
+                         TextChanged="TextBoxBase_OnTextChanged"/>
+            </DockPanel>
+            <Rectangle Fill="{DynamicResource SystemBaseMediumLowColorBrush}" Height="1"/>
+        </StackPanel>
         <Grid Grid.Row="1" fw:PointerTracker.Enabled="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50*"/>
                 <ColumnDefinition Width="50*"/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="WordList" BorderBrush="{x:Null}" 
-                     Padding="0" fw:PointerTracker.Enabled="True"
+            <ListBox x:Name="WordList"
+                     Padding="0" BorderBrush="{x:Null}"
+                     Focusable="False"
+                     ItemsSource="{Binding ElementName=acrylicWindow, Path=PreviewWords.PreviewWords, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                     Background="{x:Null}"
+                     ItemContainerStyle="{StaticResource WordListItemStyle}"
                      ScrollViewer.VerticalScrollBarVisibility="Disabled"
                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel/>
-                    </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        
+                    <DataTemplate DataType="{x:Type words:PreviewWord}">
+                        <local:WordListItem x:Name="WordPreview" HeadWord="{Binding HeadWord}" POS="{Binding POS}" PreviewDef="{Binding PreviewDef}"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

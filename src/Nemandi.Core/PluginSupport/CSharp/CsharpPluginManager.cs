@@ -30,7 +30,7 @@ namespace Nemandi.Core.PluginSupport.CSharp {
                 );
 
             if (isEmpty)
-                return true;
+                return false;
 
             // filter non-assembly file
             var fnames = from f
@@ -50,10 +50,11 @@ namespace Nemandi.Core.PluginSupport.CSharp {
                     foreach (var instance in instances) {
                         // need optimization
                         instance.OnInit(new PluginInitContext());
-
+                        
                         result.Add(NemandiPlugin.CreateCSharpPlugin(instance, pluginPath));
                     }
-                }catch(Exception e) {
+                }
+                catch (Exception e) {
                     // TODO: Logging, and more
                     continue;
                 }
