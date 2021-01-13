@@ -10,7 +10,7 @@ namespace Nemandi.Infrastructure.Words {
         /// <summary>
         /// Definitions under this part of speech.
         /// </summary>
-        public List<Definition> Definitions;
+        public List<Definition> Definitions { get; set; }
 
         /// <summary>
         /// Construct a new <see cref="PartOfSpeech"/> class.

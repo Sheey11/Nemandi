@@ -31,8 +31,9 @@ namespace Nemandi {
     public partial class MainWindow : AcrylicWindow {
 
         private bool _isExpanded = false;
+        private Task _autoCompleteTask = null;
 
-        public ObservablePreviewWords PreviewWords { get; set; } = new ObservablePreviewWords();
+        private ObservablePreviewWords _previewWordsModel = new ObservablePreviewWords();
 
         public MainWindow() {
             InitializeComponent();
@@ -64,7 +65,7 @@ namespace Nemandi {
             this.BeginAnimation(AcrylicWindow.HeightProperty, heightAnime);
         }
 
-        private void TextBoxBase_OnTextChanged(object sender, TextChangedEventArgs e) {
+        private async void TextBoxBase_OnTextChanged(object sender, TextChangedEventArgs e) {
             //if (this._isExpanded)
             //    this.FoldWindow();
             //else
@@ -77,16 +78,18 @@ namespace Nemandi {
 
             if (QueryTextBox.Text != "") {
                 var queryText = QueryTextBox.Text;
-                Task.Run(() => {
-                     var words = Query.Autocomplete(queryText);
-                     this.Dispatcher.Invoke(() => {
-                         PreviewWords.PreviewWords = words;
-                         if (words.Count > 0 && !this._isExpanded)
-                             this.ExpandWindow();
-                         else if(words.Count == 0 && this._isExpanded)
-                             this.FoldWindow();
-                     });
+                List<PreviewWord> words = null;
+                if (this._autoCompleteTask != null && this._autoCompleteTask.Status == TaskStatus.Running)
+                    this._autoCompleteTask.Stop();
+                this._autoCompleteTask = Task.Run(() => {
+                    words = Querying.Autocomplete(queryText);
                 });
+                await this._autoCompleteTask;
+                _previewWordsModel.PreviewWords = words;
+                if (words.Count > 0 && !this._isExpanded)
+                    this.ExpandWindow();
+                else if (words.Count == 0 && this._isExpanded)
+                    this.FoldWindow();
             }
 
             //this.WordList = Nemandi.Core.
@@ -134,5 +137,14 @@ namespace Nemandi {
         }
 
         #endregion
+
+        private async void WordList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            var selectedWord = WordList.SelectedItem as PreviewWord;
+            Word word = null;
+            await Task.Run(() => {
+                word = Querying.Query(selectedWord);
+            });
+            WordDetail.Content = word;
+        }
     }
 }

@@ -11,7 +11,7 @@
                    AcrylicWindowStyle="None"
                    TintOpacity="0.5"
                    Title="Nemandi"
-                   Width="700" Height="300"
+                   Width="700" Height="400"
                    FontFamily="Calibri"
                    Background="{DynamicResource SystemChromeMediumLowColor}"
                    Foreground="{DynamicResource SystemBaseMediumHighColorBrush}"
@@ -48,6 +48,8 @@
                      Padding="0" BorderBrush="{x:Null}"
                      Focusable="False"
                      ItemsSource="{Binding ElementName=acrylicWindow, Path=PreviewWords.PreviewWords, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                     SelectionChanged="WordList_SelectionChanged"
+                     SelectionMode="Single"
                      Background="{x:Null}"
                      ItemContainerStyle="{StaticResource WordListItemStyle}"
                      ScrollViewer.VerticalScrollBarVisibility="Disabled"
@@ -58,6 +60,40 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+            <ContentControl x:Name="WordDetail" Grid.Column="1">
+                <ContentControl.ContentTemplate>
+                    <DataTemplate DataType="{x:Type words:Word}">
+                        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <StackPanel CanHorizontallyScroll="False" CanVerticallyScroll="True">
+                                <DockPanel Margin="10 10 0 0">
+                                    <TextBlock x:Name="headWordTb" FontSize="32" FontWeight="Bold" Text="{Binding HeadWord}"/>
+                                    <TextBlock Text="{Binding HeadWord}" TextAlignment="Left" Margin="10 0 0 0" Background="#FF00B239"
+                                                   Padding="3 0 3 0" FontWeight="Bold"
+                                                   FontStyle="Italic" Foreground="White"
+                                                   FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                                   FontFamily="Calibri"/>
+                                </DockPanel>
+                                <ListBox ItemsSource="{Binding PartOfSpeeches}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate DataType="{x:Type words:PartOfSpeech}">
+                                            <Grid>
+                                                <TextBlock FontSize="12" Foreground="Black" Height="20" Text="{Binding POS}"/>
+                                                <ListBox Foreground="Black" ItemsSource="{Binding Definitions}">
+                                                    <ListBox.ItemTemplate>
+                                                        <DataTemplate DataType="{x:Type words:Definition}">
+                                                            <TextBlock x:Name="definationTb" TextWrapping="Wrap" Margin="10 10" FontSize="15" Text="{Binding PrimaryDef}"/>
+                                                        </DataTemplate>
+                                                    </ListBox.ItemTemplate>
+                                                </ListBox>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </DataTemplate> v
+                </ContentControl.ContentTemplate>
+            </ContentControl>
         </Grid>
     </Grid>
 </fw:AcrylicWindow>

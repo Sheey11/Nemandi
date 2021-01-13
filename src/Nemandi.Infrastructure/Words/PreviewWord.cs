@@ -3,6 +3,10 @@ using System;
 namespace Nemandi.Infrastructure.Words {
     public class PreviewWord {
         /// <summary>
+        /// Indicates which plugin the word originate.
+        /// </summary>
+        public string Originate { get; set; }
+        /// <summary>
         /// The word.
         /// </summary>
         public string HeadWord { get; private set; }

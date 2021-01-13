@@ -7,15 +7,15 @@ using System.Text;
 using Nemandi.Infrastructure.Words;
 
 namespace Nemandi.MVVM {
-    public class ObservablePreviewWords : INotifyPropertyChanged {
+    public class ObservableWord : INotifyPropertyChanged {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private List<PreviewWord> _previewWords;
+        private Word _word;
 
-        public List<PreviewWord> PreviewWords {
-            get => _previewWords;
+        public Word Word {
+            get => _word;
             set {
-                _previewWords = value;
+                _word = value;
                 NotifyPropertyChanged();
             }
         }

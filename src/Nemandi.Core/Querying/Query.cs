@@ -11,7 +11,7 @@ using Nemandi.PluginBase;
 using NTextCat;
 
 namespace Nemandi.Core.Querying {
-    public static class Query {
+    public static class Querying {
         public static List<PreviewWord> AutocompleteAsync(IPlugin plugin, string queryWord) {
             return plugin.Autocomplete(queryWord);
         }
@@ -22,7 +22,6 @@ namespace Nemandi.Core.Querying {
         }
 
         public static List<PreviewWord> Autocomplete(string queryWord) {
-
             return new List<PreviewWord>(
                 PluginSupport.PluginManager.LoadedPlugins.SelectMany(
                     p => p.Autocomplete(queryWord)
@@ -40,42 +39,35 @@ namespace Nemandi.Core.Querying {
             //    return Autocomplete(mostCertainLanguage.Item1.ToLanguages(), queryWord);
             //return null;
         }
+
+        public static Word Query(PreviewWord word) {
+            if (word == null) return null;
+
+            var plugin = PluginSupport.PluginManager.LoadedPlugins.Where(p => p.PluginName == word.Originate).FirstOrDefault();
+            if (plugin == null) throw new NullReferenceException($"The PreviewWord {word.HeadWord} originates from an unknown plugin.");
+            return plugin.Query(word);
+        }
     }
 
     public static class LanguageExtension {
         public static Languages ToLanguages(this LanguageInfo lang) {
-            switch (lang.Iso639_3.ToLower()) {
-                case "zho":
-                    return Languages.ChineseSimplified;
-                case "dan":
-                    return Languages.Danish;
-                case "deu":
-                    return Languages.German;
-                case "eng":
-                    return Languages.English;
-                case "fra":
-                    return Languages.French;
-                case "ita":
-                    return Languages.Italian;
-                case "jpa":
-                    return Languages.Japanese;
-                case "koa":
-                    return Languages.Korean;
-                case "nld":
-                    return Languages.Dutch;
-                case "nor":
-                    return Languages.Norwegian;
-                case "por":
-                    return Languages.Portuguese;
-                case "rus":
-                    return Languages.Russian;
-                case "spa":
-                    return Languages.Spanish;
-                case "swe":
-                    return Languages.Swedish;
-                default:
-                    return Languages.Unknown;
-            }
+            return (lang.Iso639_3.ToLower()) switch {
+                "zho" => Languages.ChineseSimplified,
+                "dan" => Languages.Danish,
+                "deu" => Languages.German,
+                "eng" => Languages.English,
+                "fra" => Languages.French,
+                "ita" => Languages.Italian,
+                "jpa" => Languages.Japanese,
+                "koa" => Languages.Korean,
+                "nld" => Languages.Dutch,
+                "nor" => Languages.Norwegian,
+                "por" => Languages.Portuguese,
+                "rus" => Languages.Russian,
+                "spa" => Languages.Spanish,
+                "swe" => Languages.Swedish,
+                _ => Languages.Unknown,
+            };
         }
     }
 }
